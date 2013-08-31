@@ -15,7 +15,7 @@ require('core.php');
 <body>
 <?php include("include/header.php"); ?>
 
-<div class="loginForm">
+<div class="regForm">
     <div class="container">
         <div class="row">
             <div class="span6 offset3">
