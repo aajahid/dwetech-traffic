@@ -35,7 +35,13 @@ require('core.php');
 <div id="midBody">
     <div class="container">
         <div class="content">
-
+            <h1><img src="img/dwetech-traffic.png" alt=""/></h1>
+            <h1>
+                Share a ride with someone awesome.
+            </h1>
+            <h1>
+                It's totally changed the way you get around the city.
+            </h1>
         </div>
     </div>
 </div>
