@@ -17,19 +17,17 @@ define ( 'TBL_SETTINGS', 'settings' );
 
 
 // Website URL
-define ( 'WEBSITE_URL', 'http://localhost/foodlve/crawler/' );
+define ( 'WEBSITE_URL', 'http://localhost/dwetech-traffic/' );
 
-define ( 'UPLOAD_URL', WEBSITE_URL . 'uploads/' );
 
-define ( 'PICTURE_UPLOAD_URL', UPLOAD_URL . 'pictures/' );
 
-define ( 'ADMIN_URL', WEBSITE_URL );
+//define ( 'ADMIN_URL', WEBSITE_URL );
 
 
 // Directory Constant
-define ( 'UPLOAD_DIR', ROOT_DIR . 'uploads/' );
-
-define ( 'PICTURE_UPLOAD_DIR', UPLOAD_DIR . 'pictures/' );
+define('CSS' , WEBSITE_URL.'css');
+define('JS' , WEBSITE_URL.'js');
+define('IMG' , WEBSITE_URL.'img');
 
 
 
