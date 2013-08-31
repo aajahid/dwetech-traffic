@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="span3">
                     <div class="websiteName">
-                        <a href="<?php echo WEBSITE_URL; ?>"><img src="img/dwetech-traffic.png" alt=""/></a>
+                        <a href="<?php echo WEBSITE_URL; ?>"><img src="<?php echo WEBSITE_URL ?>img/dwetech-traffic.png" alt=""/></a>
                     </div>
                 </div>
             </div>

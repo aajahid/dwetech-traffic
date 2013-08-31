@@ -97,6 +97,29 @@ Y2giPkR3ZXRlY2g8L2E+PC9zcGFuPiANCjwvZGl2Pg=='));
                     }
 
                 break;
+
+                case 'user':
+
+                if( isset($_SESSION['user_email']) && isset($_SESSION['user_lastlogin']) && isset($_SESSION['s_encryption']) )
+                {
+                    $s_encryption = $s_encryption = md5("Sscript made by SHAKTI -UserLevel: user user_email : ".$_SESSION['user_email'].' Last login : '.$_SESSION['user_lastlogin']);
+
+                    if( ($_SESSION['s_encryption'] == $s_encryption ) && $this->isTimeOut() )
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
+                }
+                else 
+                {
+                    return false;
+                }
+
+                break;
             }
 
     }
@@ -178,7 +201,7 @@ Y2giPkR3ZXRlY2g8L2E+PC9zcGFuPiANCjwvZGl2Pg=='));
 
         $email = cleanData($email);
 
-        if ( $this->checkAdmin( $email, $password ) == '0' )
+        if ( !$this->checkUser( $email, $password ) )
             {
                 return false;
             }
@@ -207,6 +230,44 @@ Y2giPkR3ZXRlY2g8L2E+PC9zcGFuPiANCjwvZGl2Pg=='));
     }
 
 
+    function checkUser ($email, $password)
+    {
+        $query = mysql_query('SELECT * FROM users WHERE email = "'.$email.'"');
+
+        if( mysql_num_rows($query) < 1 )
+        {
+            return false;
+        }
+
+        $data = mysql_fetch_assoc($query);
+
+        $password = hash('sha256',$password);
+
+        if( $data['password'] == $password )
+        {
+            $this->loginUser($email,$data['registration_date']);
+            return true;
+        }
+
+        return false;
+
+
+    }
+
+
+    private function loginUser ($email, $lastlogin)
+    {
+        $_SESSION['user_email'] =  $email;
+        $_SESSION['user_lastlogin'] = $lastlogin;
+        $_SESSION['loginType'] = 'user';
+
+        updateQuery('users', array('registration_date'=>'NOW()'),'email='.$email);
+
+        $_SESSION['s_encryption'] = md5("Sscript made by SHAKTI -UserLevel: user user_email : ".$email.' Last login : '.$lastlogin);
+
+    }
+
+
 
     private function loginAdmin ()
     {
@@ -217,6 +278,7 @@ Y2giPkR3ZXRlY2g8L2E+PC9zcGFuPiANCjwvZGl2Pg=='));
 
         $_SESSION['s_encryption_admin'] = md5("Sscript made by SHAKTI -UserLevel: admin admin_email : ".$email.' Last login : '.$lastlogin);
     }
+
             
         
         
