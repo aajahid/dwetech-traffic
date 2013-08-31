@@ -31,5 +31,25 @@ require('core.php');
         </div>
     </div>
 </div>
+
+<div id="midBody">
+    <div class="container">
+        <div class="content">
+
+        </div>
+    </div>
+</div>
 </body>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(window).bind('scroll', function(e) {
+            parallax();
+        });
+    });
+
+    function parallax() {
+        var scrollPosition = $(window).scrollTop();
+        $('#bgTraffic').css('top',(0 - (scrollPosition * .2))+'px' );
+    }
+</script>
 </html>
