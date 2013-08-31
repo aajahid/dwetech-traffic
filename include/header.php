@@ -1,8 +1,13 @@
-<?php
-/**
- * Created by JetBrains PhpStorm.
- * User: Ridwa_000
- * Date: 8/31/13
- * Time: 2:51 PM
- * To change this template use File | Settings | File Templates.
- */
+<header>
+    <div class="container">
+        <div class="header">
+            <div class="row">
+                <div class="span3">
+                    <div class="websiteName">
+                        <a href="<?php echo WEBSITE_URL; ?>"><img src="img/dwetech-traffic.png" alt=""/></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
