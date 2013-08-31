@@ -10,14 +10,14 @@ All right reserved. Copyright Abdullah Al Jahid
 define ( 'DB_HOST', 'localhost' );
 define ( 'DB_USER', 'root' );
 define ( 'DB_PASSWORD', '' );
-define ( 'DB_NAME', 'foodlve_crawler' );
+define ( 'DB_NAME', 'dwetech-traffic' );
 
 define ( 'TBL_DIETITIAN', 'dietitian' );
 define ( 'TBL_SETTINGS', 'settings' );
 
 
 // Website URL
-define ( 'WEBSITE_URL', 'http://localhost/foodlve/crawler/' );
+define ( 'WEBSITE_URL', 'http://localhost/dwetech-traffic/' );
 
 define ( 'UPLOAD_URL', WEBSITE_URL . 'uploads/' );
 
