@@ -22,8 +22,12 @@ header{
     display: inline-block;
     padding: 150px 0;
 }
-
 .btn-block-custom{
     padding: 15px 0!important;
     font-size: 1em!important;
+}
+.loginForm{
+    width: 100%;
+    display: inline-block;
+    padding: 150px 0;
 }
