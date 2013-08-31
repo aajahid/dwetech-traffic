@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Server version:               5.5.27-log - MySQL Community Server (GPL)
+-- Server version:               5.5.27 - MySQL Community Server (GPL)
 -- Server OS:                    Win32
--- HeidiSQL Version:             8.0.0.4396
+-- HeidiSQL Version:             8.0.0.4478
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -10,13 +10,7 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
--- Dumping database structure for dwetech-traffic
-CREATE DATABASE IF NOT EXISTS `dwetech-traffic` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `dwetech-traffic`;
-
-
 -- Dumping structure for table dwetech-traffic.driver_profile
-DROP TABLE IF EXISTS `driver_profile`;
 CREATE TABLE IF NOT EXISTS `driver_profile` (
   `id` int(10) NOT NULL,
   `user_id` int(10) DEFAULT NULL,
@@ -35,7 +29,6 @@ CREATE TABLE IF NOT EXISTS `driver_profile` (
 
 
 -- Dumping structure for table dwetech-traffic.reviews
-DROP TABLE IF EXISTS `reviews`;
 CREATE TABLE IF NOT EXISTS `reviews` (
   `id` int(10) DEFAULT NULL,
   `type` enum('1','2') DEFAULT NULL COMMENT 'Tells whatever the review is for driver or rider. 1 = rider, 2 = driver',
@@ -52,7 +45,6 @@ CREATE TABLE IF NOT EXISTS `reviews` (
 
 
 -- Dumping structure for table dwetech-traffic.rider_profile
-DROP TABLE IF EXISTS `rider_profile`;
 CREATE TABLE IF NOT EXISTS `rider_profile` (
   `id` int(10) DEFAULT NULL,
   `user_id` int(10) DEFAULT NULL,
@@ -69,7 +61,6 @@ CREATE TABLE IF NOT EXISTS `rider_profile` (
 
 
 -- Dumping structure for table dwetech-traffic.settings
-DROP TABLE IF EXISTS `settings`;
 CREATE TABLE IF NOT EXISTS `settings` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
@@ -89,9 +80,8 @@ INSERT INTO `settings` (`id`, `name`, `label`, `value`) VALUES
 
 
 -- Dumping structure for table dwetech-traffic.users
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(10) NOT NULL,
+  `id` int(10) NOT NULL AUTO_INCREMENT,
   `firstname` varchar(255) DEFAULT NULL,
   `lastname` varchar(255) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
@@ -100,10 +90,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `address` text,
   `registration_date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- Dumping data for table dwetech-traffic.users: ~0 rows (approximately)
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
