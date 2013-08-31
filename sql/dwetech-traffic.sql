@@ -15,6 +15,59 @@ CREATE DATABASE IF NOT EXISTS `dwetech-traffic` /*!40100 DEFAULT CHARACTER SET l
 USE `dwetech-traffic`;
 
 
+-- Dumping structure for table dwetech-traffic.driver_profile
+DROP TABLE IF EXISTS `driver_profile`;
+CREATE TABLE IF NOT EXISTS `driver_profile` (
+  `id` int(10) NOT NULL,
+  `user_id` int(10) DEFAULT NULL,
+  `car_model` varchar(50) DEFAULT NULL,
+  `car_brand` varchar(50) DEFAULT NULL,
+  `driving_license` varchar(255) DEFAULT NULL,
+  `car_photo` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `rank` int(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table dwetech-traffic.driver_profile: ~0 rows (approximately)
+/*!40000 ALTER TABLE `driver_profile` DISABLE KEYS */;
+/*!40000 ALTER TABLE `driver_profile` ENABLE KEYS */;
+
+
+-- Dumping structure for table dwetech-traffic.reviews
+DROP TABLE IF EXISTS `reviews`;
+CREATE TABLE IF NOT EXISTS `reviews` (
+  `id` int(10) DEFAULT NULL,
+  `type` enum('1','2') DEFAULT NULL COMMENT 'Tells whatever the review is for driver or rider. 1 = rider, 2 = driver',
+  `review_for` int(11) DEFAULT NULL,
+  `review_by` int(11) DEFAULT NULL,
+  `review` text,
+  `rating` int(11) DEFAULT NULL COMMENT 'Rating out of 10',
+  `review_date` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table dwetech-traffic.reviews: ~0 rows (approximately)
+/*!40000 ALTER TABLE `reviews` DISABLE KEYS */;
+/*!40000 ALTER TABLE `reviews` ENABLE KEYS */;
+
+
+-- Dumping structure for table dwetech-traffic.rider_profile
+DROP TABLE IF EXISTS `rider_profile`;
+CREATE TABLE IF NOT EXISTS `rider_profile` (
+  `id` int(10) DEFAULT NULL,
+  `user_id` int(10) DEFAULT NULL,
+  `address` varchar(500) DEFAULT NULL,
+  `contact_no` varchar(50) DEFAULT NULL,
+  `rank` int(10) DEFAULT NULL,
+  `facebook` varchar(50) DEFAULT NULL,
+  `twitter` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table dwetech-traffic.rider_profile: ~0 rows (approximately)
+/*!40000 ALTER TABLE `rider_profile` DISABLE KEYS */;
+/*!40000 ALTER TABLE `rider_profile` ENABLE KEYS */;
+
+
 -- Dumping structure for table dwetech-traffic.settings
 DROP TABLE IF EXISTS `settings`;
 CREATE TABLE IF NOT EXISTS `settings` (
@@ -25,7 +78,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
--- Dumping data for table dwetech-traffic.settings: 3 rows
+-- Dumping data for table dwetech-traffic.settings: 4 rows
 /*!40000 ALTER TABLE `settings` DISABLE KEYS */;
 INSERT INTO `settings` (`id`, `name`, `label`, `value`) VALUES
 	(1, 'admin_email', 'Admin Email', 'info@dwetech.com'),
